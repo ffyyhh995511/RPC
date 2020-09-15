@@ -6,6 +6,7 @@ import com.darryl.rpc.req.RpcRequest;
 import com.darryl.rpc.res.RpcResponse;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.ReferenceCountUtil;
@@ -24,6 +25,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Description: RPC 服务提供者收到请求后，对远程请求做相应的处理，并返回给远程客户端
  * @Date: 2020/04/15
  */
+@ChannelHandler.Sharable
 public class RpcInvokeHandler extends ChannelInboundHandlerAdapter {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 
